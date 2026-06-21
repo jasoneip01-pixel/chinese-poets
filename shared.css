@@ -123,6 +123,8 @@ footer a:hover{text-decoration:underline}
 /* Section images */
 .section-image{margin:1.5rem 0;text-align:center}
 .section-image img{max-width:100%;height:auto;border-radius:4px;box-shadow:0 4px 20px rgba(44,36,22,.12)}
+.image-caption{font-size:.82rem;color:#8a7a6a;margin-top:.6rem;text-align:center;font-style:italic}
+.section-dark .image-caption{color:#a8a094}
 
 /* γ content cards */
 .reading-card{background:#ede8df;border-radius:6px;padding:clamp(1.25rem,3vw,2rem);margin:1rem 0;border-left:3px solid #c8412b}
