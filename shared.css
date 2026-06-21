@@ -120,6 +120,28 @@ footer a:hover{text-decoration:underline}
 .ornament{font-size:1.2rem;color:#c8412b;opacity:.3;margin-top:1rem;letter-spacing:1em}
 .section-dark .ornament{color:#d46a5a}
 
+/* Section images */
+.section-image{margin:1.5rem 0;text-align:center}
+.section-image img{max-width:100%;height:auto;border-radius:4px;box-shadow:0 4px 20px rgba(44,36,22,.12)}
+
+/* γ content cards */
+.reading-card{background:#ede8df;border-radius:6px;padding:clamp(1.25rem,3vw,2rem);margin:1rem 0;border-left:3px solid #c8412b}
+.reading-card p{font-size:.9rem;line-height:2;color:#3a3228;max-width:none}
+.section-dark .reading-card{background:rgba(237,232,223,.06)}
+.section-dark .reading-card p{color:#c8c0b4}
+
+.who-card{background:transparent;border-radius:0;padding:clamp(1rem,3vw,2rem);margin:1.5rem auto;max-width:640px;text-align:center}
+.who-card p{font-size:.95rem;line-height:2.2;color:#3a3228;max-width:none;font-style:italic}
+.section-dark .who-card p{color:#c8c0b4}
+
+.era-card{background:rgba(237,232,223,.06);border-radius:6px;padding:clamp(1.25rem,3vw,2rem);margin:1rem 0;border-left:3px solid #8a7a6a}
+.era-card p{font-size:.9rem;line-height:2;color:#c8c0b4;max-width:none}
+
+.legacy-card{background:#ede8df;border-radius:6px;padding:clamp(1.25rem,3vw,2rem);margin:1rem 0;border-left:3px solid #c8412b}
+.legacy-card p{font-size:.9rem;line-height:2;color:#3a3228;max-width:none}
+.section-dark .legacy-card{background:rgba(237,232,223,.06)}
+.section-dark .legacy-card p{color:#c8c0b4}
+
 @media(max-width:480px){.people-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.people-grid{grid-template-columns:repeat(3,1fr)}}
 
