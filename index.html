@@ -13,37 +13,53 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
-body{font-family:-apple-system,"Noto Serif CJK SC","Source Han Serif SC","Songti SC","Hiragino Mincho ProN",Georgia,"Times New Roman",serif;background:#f6f2eb;color:#2c2416;line-height:1.8;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+body{font-family:-apple-system,"Noto Serif CJK SC","Source Han Serif SC","Songti SC","Hiragino Mincho ProN",Georgia,"Times New Roman",serif;background:#f6f2eb;color:#2c2416;line-height:1.7;-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 
-.hero{text-align:center;padding:clamp(4rem,8vw,8rem) 1.5rem clamp(3rem,6vw,6rem)}
-.hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:400;letter-spacing:.25em;color:#2c2416;margin-bottom:.8rem}
-.hero .sub{font-size:clamp(.85rem,1.3vw,1.1rem);color:#8a7a6a;letter-spacing:.3em}
-.hero .divider{margin:2rem auto 0;width:clamp(3rem,5vw,5rem);height:2px;background:#c8412b}
+/* Hero */
+.hero{text-align:center;padding:clamp(3rem,6vw,7rem) 1.5rem clamp(2.5rem,5vw,5rem)}
+.hero h1{font-size:clamp(2rem,6vw,4rem);font-weight:400;letter-spacing:.25em;color:#2c2416;margin-bottom:.6rem}
+.hero .sub{font-size:clamp(.82rem,1.3vw,1.1rem);color:#8a7a6a;letter-spacing:.3em}
+.hero .divider{margin:1.8rem auto 0;width:clamp(2.5rem,4vw,4.5rem);height:2px;background:#c8412b}
 
+/* Desktop/Tablet: card grid */
 .gallery{max-width:min(1100px,calc(100% - 2rem));margin:0 auto;padding:0 1.5rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:clamp(1rem,2vw,1.5rem)}
 .card{position:relative;border-radius:8px;overflow:hidden;text-decoration:none;background:#ede8df;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;height:100%}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(44,36,22,.12)}
-.card-header{padding:clamp(2rem,4vw,2.5rem) 1.5rem clamp(.5rem,1vw,.75rem);position:relative}
+.card-header{padding:clamp(1.8rem,4vw,2.4rem) 1.5rem clamp(.4rem,1vw,.7rem)}
 .card-header .era{font-size:.72rem;color:#c8412b;letter-spacing:.15em;margin-bottom:.4rem;display:block}
-.card-header .name{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;color:#2c2416;letter-spacing:.12em;margin-bottom:.3rem}
-.card-header .dates{font-size:.78rem;color:#8a7a6a;letter-spacing:.06em}
-.card-body{padding:.5rem 1.5rem 1.5rem;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.card-body .quote{font-size:.9rem;color:#5a4e3e;line-height:1.8;margin-bottom:1rem;font-style:italic}
-.card-body .arrow{font-size:.75rem;color:#c8412b;letter-spacing:.1em;align-self:flex-end}
-
+.card-header .name{font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:400;color:#2c2416;letter-spacing:.1em;margin-bottom:.2rem}
+.card-header .dates{font-size:.76rem;color:#8a7a6a;letter-spacing:.06em}
+.card-body{padding:.4rem 1.5rem 1.5rem;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.card-body .quote{font-size:.88rem;color:#5a4e3e;line-height:1.8;margin-bottom:.8rem;font-style:italic}
+.card-body .arrow{font-size:.72rem;color:#c8412b;letter-spacing:.1em;align-self:flex-end}
 .feat{position:absolute;top:12px;right:12px;font-size:.65rem;color:#c8412b;background:rgba(200,65,43,.1);padding:.2rem .6rem;border-radius:3px;letter-spacing:.1em}
 
-footer{text-align:center;padding:3rem 1.5rem 4rem;color:#8a7a6a;font-size:.8rem;letter-spacing:.1em;border-top:1px solid #ede8df}
+footer{text-align:center;padding:2.5rem 1.5rem 3.5rem;color:#8a7a6a;font-size:.8rem;letter-spacing:.1em;border-top:1px solid #ede8df}
 footer a{color:#c8412b;text-decoration:none}
 
-@media(max-width:480px){.gallery{grid-template-columns:1fr}.hero h1{font-size:clamp(1.6rem,8vw,2.5rem)}.card-header{padding:1.5rem 1.25rem .5rem}.card-body{padding:.5rem 1.25rem 1.25rem}}
-@media(min-width:481px) and (max-width:768px){.gallery{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1280px){.gallery{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1800px){.gallery{max-width:1300px}}
-@media(prefers-color-scheme:dark){body{background:#1a1612;color:#e8e0d4}.hero h1{color:#e8e0d4}.card{background:#2c2416}.card-header .name{color:#e8e0d4}.card-body .quote{color:#a8a094}footer{border-top-color:#2c2416}footer a{color:#d46a5a}}
+/* ── Phone: era-grouped compact list ── */
+.era-section{display:none}
+@media(max-width:600px){
+  .gallery{display:none}
+  .era-section{display:block;max-width:calc(100% - 2rem);margin:0 auto;padding:0 1rem 3rem}
+  .era-header{font-size:.72rem;color:#c8412b;letter-spacing:.3em;margin:2rem 0 .6rem;padding-left:.4rem;border-left:2px solid #c8412b;position:relative}
+  .era-header::after{content:'';position:absolute;top:50%;left:-.3rem;width:6px;height:6px;border-radius:50%;background:#c8412b;transform:translateY(-50%)}
+  .era-row{display:flex;align-items:center;gap:.6rem;padding:.55rem .5rem;text-decoration:none;border-bottom:1px solid #ede8df20;transition:background .15s;border-radius:6px;margin-bottom:2px}
+  .era-row:active,.era-row:hover{background:#ede8df}
+  .era-row .row-era{flex:0 0 auto;font-size:.65rem;color:#c8412b;white-space:nowrap;width:3.4em;text-align:right}
+  .era-row .row-name{font-size:1rem;font-weight:600;color:#2c2416;letter-spacing:.06em;white-space:nowrap;flex:0 0 auto}
+  .era-row .row-dates{font-size:.68rem;color:#8a7a6a;white-space:nowrap;flex:0 0 auto;margin-left:auto}
+  .era-row .row-star{font-size:.65rem;color:#c8412b;margin-left:2px}
+  footer{padding:2rem 1rem 3rem}
+}
 
-.grid-2{grid-column:span 2}
-@media(max-width:600px){.grid-2{grid-column:span 1}}
+/* Tablet: 2-col grid */
+@media(min-width:601px) and (max-width:1023px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1800px){.gallery{max-width:1300px}}
+
+/* Dark mode */
+@media(prefers-color-scheme:dark){body{background:#1a1612;color:#e8e0d4}.hero h1{color:#e8e0d4}.card{background:#2c2416}.card-header .name{color:#e8e0d4}.card-body .quote{color:#a8a094}.era-row{color:#e8e0d4}.era-row .row-name{color:#e8e0d4}.era-row:active,.era-row:hover{background:#2c2416}footer{border-top-color:#2c2416}footer a{color:#d46a5a}}
 </style>
 </head>
 <body>
@@ -54,59 +70,44 @@ footer a{color:#c8412b;text-decoration:none}
   <div class="divider"></div>
 </div>
 
+<!-- Phone: era-grouped list -->
+<div class="era-section"><div class="era-header">战国</div>
+  <a href="quyuan.html" class="era-row"><span class="row-era">楚</span><span class="row-name">屈原</span><span class="row-dates">前340–前278</span></a>
+  <div class="era-header">初唐</div>
+  <a href="wangbo.html" class="era-row"><span class="row-era">650</span><span class="row-name">王勃</span><span class="row-dates">–676</span></a>
+  <div class="era-header">盛唐</div>
+  <a href="wangchangling.html" class="era-row"><span class="row-era">698</span><span class="row-name">王昌龄</span><span class="row-dates">–757</span></a>
+  <a href="libai.html" class="era-row"><span class="row-era">701</span><span class="row-name">李白</span><span class="row-dates">–762</span></a>
+  <a href="wangwei.html" class="era-row"><span class="row-era">701</span><span class="row-name">王维</span><span class="row-dates">–761</span></a>
+  <a href="gaoshi.html" class="era-row"><span class="row-era">704</span><span class="row-name">高适</span><span class="row-dates">–765</span></a>
+  <a href="dufu.html" class="era-row"><span class="row-era">712</span><span class="row-name">杜甫</span><span class="row-dates">–770</span></a>
+  <div class="era-header">中唐</div>
+  <a href="baijuyi.html" class="era-row"><span class="row-era">772</span><span class="row-name">白居易</span><span class="row-dates">–846</span></a>
+  <div class="era-header">晚唐</div>
+  <a href="dumu.html" class="era-row"><span class="row-era">803</span><span class="row-name">杜牧</span><span class="row-dates">–852</span></a>
+  <a href="lishangyin.html" class="era-row"><span class="row-era">813</span><span class="row-name">李商隐</span><span class="row-dates">–858</span></a>
+  <div class="era-header">北宋</div>
+  <a href="sushi.html" class="era-row"><span class="row-era">1037</span><span class="row-name">苏轼</span><span class="row-dates">–1101</span><span class="row-star">★</span></a>
+  <a href="suzhe.html" class="era-row"><span class="row-era">1039</span><span class="row-name">苏辙</span><span class="row-dates">–1112</span></a>
+  <div class="era-header">南宋</div>
+  <a href="xinqiji.html" class="era-row"><span class="row-era">1140</span><span class="row-name">辛弃疾</span><span class="row-dates">–1207</span></a>
+</div>
+
+<!-- Tablet/Desktop: card grid -->
 <div class="gallery">
-  <a href="quyuan.html" class="card">
-    <div class="card-header"><span class="era">战国 · 楚</span><span class="name">屈原</span><span class="dates">约前 340 – 前 278</span></div>
-    <div class="card-body"><div class="quote">路漫漫其修远兮，吾将上下而求索</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="wangbo.html" class="card">
-    <div class="card-header"><span class="era">初唐</span><span class="name">王勃</span><span class="dates">650 – 676</span></div>
-    <div class="card-body"><div class="quote">海内存知己，天涯若比邻</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="wangchangling.html" class="card">
-    <div class="card-header"><span class="era">盛唐</span><span class="name">王昌龄</span><span class="dates">698 – 757</span></div>
-    <div class="card-body"><div class="quote">秦时明月汉时关，万里长征人未还</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="libai.html" class="card">
-    <div class="card-header"><span class="era">盛唐</span><span class="name">李白</span><span class="dates">701 – 762</span></div>
-    <div class="card-body"><div class="quote">天生我材必有用，千金散尽还复来</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="wangwei.html" class="card">
-    <div class="card-header"><span class="era">盛唐</span><span class="name">王维</span><span class="dates">701 – 761</span></div>
-    <div class="card-body"><div class="quote">行到水穷处，坐看云起时</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="gaoshi.html" class="card">
-    <div class="card-header"><span class="era">盛唐</span><span class="name">高适</span><span class="dates">704 – 765</span></div>
-    <div class="card-body"><div class="quote">莫愁前路无知己，天下谁人不识君</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="dufu.html" class="card">
-    <div class="card-header"><span class="era">盛唐</span><span class="name">杜甫</span><span class="dates">712 – 770</span></div>
-    <div class="card-body"><div class="quote">会当凌绝顶，一览众山小</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="baijuyi.html" class="card">
-    <div class="card-header"><span class="era">中唐</span><span class="name">白居易</span><span class="dates">772 – 846</span></div>
-    <div class="card-body"><div class="quote">同是天涯沦落人，相逢何必曾相识</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="dumu.html" class="card">
-    <div class="card-header"><span class="era">晚唐</span><span class="name">杜牧</span><span class="dates">803 – 852</span></div>
-    <div class="card-body"><div class="quote">商女不知亡国恨，隔江犹唱后庭花</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="lishangyin.html" class="card">
-    <div class="card-header"><span class="era">晚唐</span><span class="name">李商隐</span><span class="dates">813 – 858</span></div>
-    <div class="card-body"><div class="quote">此情可待成追忆，只是当时已惘然</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="sushi.html" class="card" style="grid-column:span 2">
-    <div class="card-header"><span class="era">北宋</span><span class="name">苏轼</span><span class="dates">1037 – 1101</span><span class="feat">★ 推荐</span></div>
-    <div class="card-body"><div class="quote">大江东去，浪淘尽，千古风流人物</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="suzhe.html" class="card">
-    <div class="card-header"><span class="era">北宋</span><span class="name">苏辙</span><span class="dates">1039 – 1112</span></div>
-    <div class="card-body"><div class="quote">盖天下之事，常成于困约而败于奢靡</div><span class="arrow">进入 →</span></div>
-  </a>
-  <a href="xinqiji.html" class="card">
-    <div class="card-header"><span class="era">南宋</span><span class="name">辛弃疾</span><span class="dates">1140 – 1207</span></div>
-    <div class="card-body"><div class="quote">醉里挑灯看剑，梦回吹角连营</div><span class="arrow">进入 →</span></div>
-  </a>
+  <a href="quyuan.html" class="card"><div class="card-header"><span class="era">战国 · 楚</span><span class="name">屈原</span><span class="dates">约前 340 – 前 278</span></div><div class="card-body"><div class="quote">路漫漫其修远兮，吾将上下而求索</div><span class="arrow">进入 →</span></div></a>
+  <a href="wangbo.html" class="card"><div class="card-header"><span class="era">初唐</span><span class="name">王勃</span><span class="dates">650 – 676</span></div><div class="card-body"><div class="quote">海内存知己，天涯若比邻</div><span class="arrow">进入 →</span></div></a>
+  <a href="wangchangling.html" class="card"><div class="card-header"><span class="era">盛唐</span><span class="name">王昌龄</span><span class="dates">698 – 757</span></div><div class="card-body"><div class="quote">秦时明月汉时关，万里长征人未还</div><span class="arrow">进入 →</span></div></a>
+  <a href="libai.html" class="card"><div class="card-header"><span class="era">盛唐</span><span class="name">李白</span><span class="dates">701 – 762</span></div><div class="card-body"><div class="quote">天生我材必有用，千金散尽还复来</div><span class="arrow">进入 →</span></div></a>
+  <a href="wangwei.html" class="card"><div class="card-header"><span class="era">盛唐</span><span class="name">王维</span><span class="dates">701 – 761</span></div><div class="card-body"><div class="quote">行到水穷处，坐看云起时</div><span class="arrow">进入 →</span></div></a>
+  <a href="gaoshi.html" class="card"><div class="card-header"><span class="era">盛唐</span><span class="name">高适</span><span class="dates">704 – 765</span></div><div class="card-body"><div class="quote">莫愁前路无知己，天下谁人不识君</div><span class="arrow">进入 →</span></div></a>
+  <a href="dufu.html" class="card"><div class="card-header"><span class="era">盛唐</span><span class="name">杜甫</span><span class="dates">712 – 770</span></div><div class="card-body"><div class="quote">会当凌绝顶，一览众山小</div><span class="arrow">进入 →</span></div></a>
+  <a href="baijuyi.html" class="card"><div class="card-header"><span class="era">中唐</span><span class="name">白居易</span><span class="dates">772 – 846</span></div><div class="card-body"><div class="quote">同是天涯沦落人，相逢何必曾相识</div><span class="arrow">进入 →</span></div></a>
+  <a href="dumu.html" class="card"><div class="card-header"><span class="era">晚唐</span><span class="name">杜牧</span><span class="dates">803 – 852</span></div><div class="card-body"><div class="quote">商女不知亡国恨，隔江犹唱后庭花</div><span class="arrow">进入 →</span></div></a>
+  <a href="lishangyin.html" class="card"><div class="card-header"><span class="era">晚唐</span><span class="name">李商隐</span><span class="dates">813 – 858</span></div><div class="card-body"><div class="quote">此情可待成追忆，只是当时已惘然</div><span class="arrow">进入 →</span></div></a>
+  <a href="sushi.html" class="card"><div class="card-header"><span class="era">北宋</span><span class="name">苏轼</span><span class="dates">1037 – 1101</span><span class="feat">★ 推荐</span></div><div class="card-body"><div class="quote">大江东去，浪淘尽，千古风流人物</div><span class="arrow">进入 →</span></div></a>
+  <a href="suzhe.html" class="card"><div class="card-header"><span class="era">北宋</span><span class="name">苏辙</span><span class="dates">1039 – 1112</span></div><div class="card-body"><div class="quote">盖天下之事，常成于困约而败于奢靡</div><span class="arrow">进入 →</span></div></a>
+  <a href="xinqiji.html" class="card"><div class="card-header"><span class="era">南宋</span><span class="name">辛弃疾</span><span class="dates">1140 – 1207</span></div><div class="card-body"><div class="quote">醉里挑灯看剑，梦回吹角连营</div><span class="arrow">进入 →</span></div></a>
 </div>
 
 <footer>
